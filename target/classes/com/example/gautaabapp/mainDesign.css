@@ -1,0 +1,43 @@
+
+.backgroundColor{
+    -fx-background-color: #DCDCE5;
+    -fx-border-color: #000;
+}
+.backgroundColorOfPane{
+    -fx-background-color: rgba(0, 0, 0, .4); // transparent white
+}
+.backgroundColorOfSatelliteChoice{
+    -fx-background-color: rgba(255, 255, 255, .5); // transparent white
+}
+.backgroundColorOfVectors{
+    -fx-background-color: rgba(255, 255, 255, .5); // transparent white
+}
+
+.labelsStyle{
+    -fx-background-color: rgba(27, 27, 27, .4); // transparent white;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-background-position: center;
+}
+
+
+.button {
+    -fx-background-color:  #E2E2E2;
+    -fx-background-radius: 20;
+}
+
+.button:hover {
+    -fx-background-radius: 20;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+
+    transition: -fx-background-color 0.5s ease,
+    -fx-scale-x 0.5s ease,
+    -fx-scale-y 0.5s ease;
+}
+.button:pressed{
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-background-color: white;
+    -fx-border-color: red;
+}

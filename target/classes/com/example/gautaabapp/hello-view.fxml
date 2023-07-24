@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="backgroundColor" stylesheets="@mainDesign.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gautaabapp.Controller">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1102.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Image/Земля.jpg" />
+         </image>
+      </ImageView>
+      <TabPane layoutX="15.0" layoutY="152.0" prefHeight="425.0" prefWidth="870.0" style="-fx-border-color: #C4C4C4; -fx-border-radius: 5;" styleClass="backgroundColorOfPane" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="152.0">
+        <tabs>
+          <Tab text="Главное">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="8.0" layoutY="293.0" prefHeight="30.0" prefWidth="100.0" styleClass="labelsStyle" text="Название КА:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="2.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="14.0" prefHeight="30.0" prefWidth="163.0" styleClass="labelsStyle" stylesheets="@mainDesign.css" text="Точка наблюдения:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets left="2.0" right="2.0" />
+                           </padding>
+                        </Label>
+                        <ComboBox fx:id="nameOfLocation" layoutX="180.0" layoutY="14.0" prefHeight="30.0" prefWidth="140.0" promptText="Город" style="-fx-background-color: #E2E2E2; -fx-background-radius: 20;" />
+                        <Label layoutX="8.0" layoutY="51.0" prefHeight="30.0" prefWidth="75.0" styleClass="labelsStyle" text="Долгота:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets left="2.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="89.0" prefHeight="30.0" prefWidth="75.0" styleClass="labelsStyle" text="Широта:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets left="2.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="longitudeValue" layoutX="90.0" layoutY="51.0" prefHeight="30.0" prefWidth="200.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="latitudeValue" layoutX="90.0" layoutY="89.0" prefHeight="30.0" prefWidth="200.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="297.0" layoutY="51.0" prefHeight="30.0" prefWidth="220.0" styleClass="labelsStyle" text="Высота над уровнем моря:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets left="2.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="altitudeAboveSeaValue" layoutX="523.0" layoutY="51.0" prefHeight="30.0" prefWidth="90.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelNameOfSatelliteMain" layoutX="119.0" layoutY="293.0" prefHeight="30.0" prefWidth="190.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="download_button" layoutX="352.0" layoutY="182.0" mnemonicParsing="false" onAction="#downloadJSON_button" prefHeight="30.0" prefWidth="130.0" stylesheets="@mainDesign.css" text="Загрузить">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Image/free-icon-download-arrow-62055.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
+                        <Label layoutX="8.0" layoutY="182.0" prefHeight="30.0" prefWidth="326.0" styleClass="labelsStyle" text="Для загрузки новых данных, нажмите кнопку:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="2.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="dataUpload" layoutX="184.0" layoutY="262.0" prefHeight="30.0" prefWidth="300.0" textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="datePickerMainWindow" layoutX="138.0" layoutY="130.0" prefHeight="30.0" prefWidth="200.0" />
+                        <Label layoutX="8.0" layoutY="130.0" prefHeight="30.0" prefWidth="121.0" styleClass="labelsStyle" text="Текущая дата:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets left="2.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="7.0" layoutY="226.0" prefHeight="30.0" prefWidth="223.0" styleClass="labelsStyle" text="Последние данные загружены:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="2.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="lastUploadDate" layoutX="234.0" layoutY="226.0" prefHeight="30.0" prefWidth="150.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+            </content>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Image/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+          </Tab>
+          <Tab text="Кеплеровы элементы">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="350.0" prefWidth="650.0">
+                     <children>
+                        <GridPane alignment="TOP_CENTER" layoutX="14.0" layoutY="44.0" prefHeight="113.0" prefWidth="380.0" style="-fx-background-color: #F6F6F6; -fx-background-radius: 7;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="217.59998779296876" minWidth="10.0" prefWidth="160.00001220703126" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="216.79998168945315" minWidth="10.0" prefWidth="210.39998779296877" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="39.599981689453124" minHeight="10.0" prefHeight="37.9999755859375" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="83.79999999999998" minHeight="10.0" prefHeight="41.59999389648437" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="53.600006103515625" minHeight="0.0" prefHeight="41.600006103515625" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="45.199980163574224" minHeight="10.0" prefHeight="40.0000015258789" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="133.0" text="Номер ИСЗ:">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="27.0" prefWidth="170.0" text="Год и номер запуска:" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="27.0" prefWidth="170.0" text="Эпоха (UTC):" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="27.0" prefWidth="170.0" text="Коэф. торможения:" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="norad_cat_id_label" prefHeight="27.0" prefWidth="150.0" text="0.0" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="object_id_label" prefHeight="27.0" prefWidth="170.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="epoch_label" prefHeight="27.0" prefWidth="210.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="bstar_label" prefHeight="27.0" prefWidth="150.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets left="5.0" right="5.0" />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
+                        </GridPane>
+                        <Label layoutX="20.0" layoutY="3.0" prefHeight="30.0" prefWidth="110.0" styleClass="labelsStyle" text="Название КА:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="2.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="labelNameOfSatellite" layoutX="137.0" layoutY="3.0" prefHeight="30.0" prefWidth="190.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <GridPane hgap="4.0" layoutX="11.0" layoutY="168.0" prefHeight="200.0" prefWidth="420.0" style="-fx-background-color: #F6F6F6; -fx-background-radius: 7;" vgap="4.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.2" minWidth="10.0" prefWidth="173.59996337890624" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.20001220703125" minWidth="10.0" prefWidth="155.99997558593748" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.20001220703125" minWidth="10.0" prefWidth="63.4000244140625" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label prefHeight="40.0" prefWidth="190.0" text="Эксцентриситет (е):" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="40.0" prefWidth="190.0" text="Наклонение (i):" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="40.0" prefWidth="190.0" text="Аргумент перицентра (ω):" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="40.0" prefWidth="190.0" text="Долгота восход-го узла (Ω):" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="40.0" prefWidth="190.0" text="Средняя аномалия (М):" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="30.0" prefWidth="60.0" text="град." GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="30.0" prefWidth="60.0" text="град." GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="30.0" prefWidth="60.0" text="град." GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="30.0" prefWidth="60.0" text="град." GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="eccentricity_label" prefHeight="20.0" prefWidth="145.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="inclination_label" prefHeight="20.0" prefWidth="145.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="ra_of_ascnode_label" prefHeight="20.0" prefWidth="145.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="arg_of_pericenter_label" prefHeight="20.0" prefWidth="145.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="mean_anomaly_label" prefHeight="20.0" prefWidth="145.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="40.0" prefWidth="190.0" text="Большая полуось (а):">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="bol_poluos_label" prefHeight="20.0" prefWidth="145.0" text="0.0" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="30.0" prefWidth="60.0" text="км." GridPane.columnIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </GridPane>
+                        <GridPane layoutX="452.0" layoutY="168.0" prefHeight="200.0" prefWidth="283.0" style="-fx-background-color: #F6F6F6; -fx-background-radius: 7;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.4000244140625" minWidth="10.0" prefWidth="33.39996337890625" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="116.20002441406248" minWidth="10.0" prefWidth="103.00003662109376" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="88.199951171875" minWidth="10.0" prefWidth="56.40003662109373" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="30.0" text="x:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="30.0" text="y:" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="30.0" text="z:" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="30.0" text="vx:" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="30.0" text="vy:" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="30.0" text="vz:" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="30.0" text="км" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="30.0" text="км" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="30.0" text="км" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="27.0" prefWidth="43.0" text="км/с" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="27.0" prefWidth="43.0" text="км/с" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="27.0" prefWidth="43.0" text="км/с" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="27.0" prefWidth="102.0" text="0.0" GridPane.columnIndex="1" fx:id="xLabel1">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="yLabel1" prefHeight="27.0" prefWidth="102.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="zLabel1" prefHeight="27.0" prefWidth="103.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="vxLabel1" prefHeight="27.0" prefWidth="110.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="vyLabel1" prefHeight="27.0" prefWidth="103.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="vzLabel1" prefHeight="27.0" prefWidth="102.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </GridPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Инфо о КА">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Image/satelliteIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Tab>
+            <Tab text="Моделирование">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="510.0" prefWidth="1000.0">
+                     <children>
+                        <ImageView fitHeight="446.0" fitWidth="924.0" layoutX="77.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Image/karta2.jpg" />
+                           </image>
+                        </ImageView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Векторы состояния">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane hgap="4.0" layoutX="15.0" layoutY="30.0" prefHeight="340.0" prefWidth="450.0" style="-fx-background-radius: 7;" styleClass="backgroundColorOfVectors" stylesheets="@mainDesign.css" vgap="4.0" AnchorPane.bottomAnchor="144.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="581.0" AnchorPane.topAnchor="30.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="178.59998779296876" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.20001220703125" minWidth="10.0" prefWidth="124.40000000000003" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.20001220703125" minWidth="10.0" prefWidth="39.60000000000002" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label prefHeight="40.0" prefWidth="190.0" text="Период обращения:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="40.0" prefWidth="190.0" text="Эксцентриситет (е):" textFill="WHITE" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="40.0" prefWidth="190.0" text="Наклонение (i):" textFill="WHITE" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="40.0" prefWidth="190.0" text="Аргумент перицентра (ω):" textFill="WHITE" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="40.0" prefWidth="195.0" text="Долгота восход-го узла (Ω):" textFill="WHITE" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="40.0" prefWidth="190.0" text="Средняя аномалия (М):" textFill="WHITE" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="periodField" prefHeight="30.0" prefWidth="110.0" GridPane.columnIndex="1" />
+                              <TextField fx:id="excentrField" prefHeight="30.0" prefWidth="110.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="naklonField" prefHeight="30.0" prefWidth="110.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="voshodUzelField" prefHeight="30.0" prefWidth="110.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="argPericentraField" prefHeight="30.0" prefWidth="110.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextField>
+                              <TextField fx:id="srAnomaliyaField" prefHeight="30.0" prefWidth="110.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label prefHeight="30.0" prefWidth="60.0" text="град." textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="30.0" prefWidth="60.0" text="град." textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="30.0" prefWidth="60.0" text="град." textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="30.0" prefWidth="60.0" text="град." textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </GridPane>
+                        <Button fx:id="calculateButton" layoutX="180.0" layoutY="384.0" mnemonicParsing="false" onAction="#submit" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #E2E2E2; -fx-background-radius: 20;" text="Рассчитать" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="384.0">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                        </Button>
+                        <GridPane layoutX="473.0" layoutY="30.0" prefHeight="340.0" prefWidth="268.0" style="-fx-background-radius: 7;" styleClass="backgroundColorOfVectors" stylesheets="@mainDesign.css" AnchorPane.bottomAnchor="144.0" AnchorPane.leftAnchor="473.0" AnchorPane.rightAnchor="305.0" AnchorPane.topAnchor="30.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.4000244140625" minWidth="10.0" prefWidth="33.39996337890625" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="116.20002441406248" minWidth="10.0" prefWidth="103.00003662109376" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="88.199951171875" minWidth="10.0" prefWidth="56.40003662109373" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="30.0" text="x:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="30.0" text="км" textFill="WHITE" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="27.0" prefWidth="43.0" text="км/с" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="27.0" prefWidth="102.0" text="0.0" textFill="WHITE" GridPane.columnIndex="1" fx:id="xLabel">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="yLabel" prefHeight="27.0" prefWidth="102.0" text="0.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="zLabel" prefHeight="27.0" prefWidth="103.0" text="0.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="vxLabel" prefHeight="27.0" prefWidth="110.0" text="0.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="vyLabel" prefHeight="27.0" prefWidth="103.0" text="0.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="vzLabel" prefHeight="27.0" prefWidth="102.0" text="0.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="30.0" text="y:" textFill="WHITE" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="30.0" text="z:" textFill="WHITE" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="30.0" text="vx:" textFill="WHITE" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="30.0" text="vy:" textFill="WHITE" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="30.0" text="vz:" textFill="WHITE" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="30.0" text="км" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="30.0" text="км" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="27.0" prefWidth="43.0" text="км/с" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="27.0" prefWidth="43.0" text="км/с" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </GridPane>
+                        <Label fx:id="warningLabel" layoutX="16.0" layoutY="-1.0" prefHeight="30.0" prefWidth="587.0" textFill="RED">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="473.0" layoutY="390.0" prefHeight="27.0" prefWidth="195.0" text="Большая полуось (а):" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="bolPoluosValue" layoutX="668.0" layoutY="390.0" prefHeight="27.0" prefWidth="82.0" text="0.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="750.0" layoutY="390.0" prefHeight="26.0" prefWidth="30.0" text="км" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Звездное время">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <DatePicker fx:id="dateTimePicker" layoutX="31.0" layoutY="30.0" />
+                        <Label fx:id="resultLabel" layoutX="31.0" layoutY="84.0" prefHeight="50.0" prefWidth="182.0" text="Label" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font></Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <AnchorPane layoutX="874.0" layoutY="71.0" prefHeight="76.0" prefWidth="190.0" style="-fx-background-radius: 5;" styleClass="backgroundColorOfSatelliteChoice" stylesheets="@mainDesign.css" AnchorPane.leftAnchor="873.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <VBox layoutX="5.0" layoutY="5.0" prefHeight="70.0" prefWidth="180.0" AnchorPane.topAnchor="5.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="175.0" text="Выберите спутник:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Image/satelliteIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <ComboBox fx:id="nameOfSatellite" onAction="#choiseSatellite" prefHeight="30.0" prefWidth="170.0" promptText="Выбранный спутник" style="-fx-background-color: #E2E2E2; -fx-background-radius: 20;" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="62.0" prefWidth="1080.0" style="-fx-background-color: #141352;" styleClass="backgroundColorOfName" stylesheets="@mainDesign.css">
+         <children>
+            <Label layoutX="26.0" layoutY="10.0" prefHeight="50.0" prefWidth="210.0" text="GAUTAAB" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="32.0" />
+               </font>
+            </Label>
+            <Label layoutX="293.0" layoutY="10.0" prefHeight="30.0" prefWidth="630.0" text="Ǵarysh apparatynyń ushý traektorıasyn anyqtaýǵa arnalǵan baǵdarlama" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="293.0" layoutY="33.0" prefHeight="30.0" prefWidth="660.0" text="Программа для определения траектории полета космического аппарата" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
